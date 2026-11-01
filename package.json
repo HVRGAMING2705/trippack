@@ -1,0 +1,7 @@
+{
+  "name": "trippack_travel_packing_checklist_app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": { "react": "^18.0.0", "react-dom": "^18.0.0" },
+  "scripts": { "start": "vite" }
+}

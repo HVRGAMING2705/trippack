@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "trippack_travel_packing_checklist_app"
+version = "0.1.0"
+description = "A fully functional travel packing app that allows users to create trips, build packing lists, and check off items. A working travel app with trips, packing lists, and packing progress."
+requires-python = ">=3.10"
+dependencies = []
+
+[tool.setuptools.packages.find]
+where = ["src"]
