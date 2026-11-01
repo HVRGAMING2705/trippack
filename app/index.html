@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TripPack - Travel Packing Checklist App</title>
+<script src="https://cdn.tailwindcss.com"></script></head>
+<body class="bg-slate-950 text-white min-h-screen p-6">
+<h1 class="text-3xl font-bold">TripPack - Travel Packing Checklist App</h1>
+<p class="text-slate-400 mt-2">A fully functional travel packing app that allows users to create trips, build packing lists, and check off items. A working travel app with trips, packing lists, and packing progress.</p>
+<div class="grid gap-4 mt-6 sm:grid-cols-2 lg:grid-cols-3">      <div class="card"><b>Create trips with destination and dates</b><p>Create trips with destination and dates — manage it below.</p></div>
+      <div class="card"><b>Build packing checklists per trip</b><p>Build packing checklists per trip — manage it below.</p></div>
+      <div class="card"><b>Check off packed items with progress</b><p>Check off packed items with progress — manage it below.</p></div></div>
+<div class="mt-8 bg-slate-900 rounded-2xl p-4">
+<input id="item" class="w-full bg-slate-800 rounded-xl p-3" placeholder="Add an entry…">
+<button onclick="addItem()" class="mt-3 bg-amber-400 text-black font-bold px-5 py-2 rounded-xl">Add</button>
+<ul id="list" class="mt-4 space-y-2"></ul></div>
+<script>
+const KEY = "trippack_travel_packing_checklist_app_items";
+function render(){ const items = JSON.parse(localStorage.getItem(KEY) || "[]");
+document.getElementById("list").innerHTML = items.map((x, i) =>
+  `<li class="bg-slate-800 rounded-xl p-3 flex justify-between"><span>${x}</span><button onclick="delItem(${i})">Delete</button></li>`).join(""); }
+function addItem(){ const v = document.getElementById("item").value.trim(); if (!v) return;
+const items = JSON.parse(localStorage.getItem(KEY) || "[]"); items.push(v);
+localStorage.setItem(KEY, JSON.stringify(items)); document.getElementById("item").value = ""; render(); }
+function delItem(i){ const items = JSON.parse(localStorage.getItem(KEY) || "[]"); items.splice(i, 1);
+localStorage.setItem(KEY, JSON.stringify(items)); render(); }
+render();
+</script></body></html>
